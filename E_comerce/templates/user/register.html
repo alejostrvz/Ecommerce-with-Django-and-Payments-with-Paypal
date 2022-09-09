@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/user/register.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'css/foundation.min.css' %}"> -->
+    <title>Registrar usario</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>Regístrate</h1>
+        </div>
+        <div class="form">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <form action="" method="POST">
+                    <div class="items">
+                        {{form.as_p}}
+                    </div>
+                    <input type="submit" class="btn" value="Registrar">
+                </form>
+            </form>
+        </div>
+        {% if error %}
+        <div class="" role="">
+            {{message}}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

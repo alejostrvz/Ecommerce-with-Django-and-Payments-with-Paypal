@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins,', sans-serif;
+}
+
+.small-container {
+    max-width: 1000px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 20px;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.single-product{
+    margin-top: 80px;
+}
+
+.small-img-row{
+    display: flex;
+    justify-content: space-around;
+}
+
+.col-2 img{
+    max-width: 100%;
+    padding: 50px 0;
+}
+
+.small-img-col {
+    flex-basis: 24%;
+    cursor: pointer;
+}
+
+.single-product .col-2 img{
+    padding: 0;
+}
+
+.single-product .col-2{
+    padding: 20px;
+}
+
+.col-2{
+    flex-basis: 50%;
+    min-width: 300px;
+}
+
+.col-2 h1{
+    font-size: 50px;
+    line-height: 60px;
+    margin: 25px 0;
+    color: #160C28;
+}
+
+.single-product h4{
+    margin: 20px 0;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+input:focus{
+    outline: none;
+}
+
+a{
+    text-decoration: none;
+    color: #555;
+}
+
+.single-product .fa{
+    color: #625b5b;
+    margin-left: 10px;
+}
+
+p{
+    color: #555;
+}
+
+.btn{
+    display: inline-block;
+    background-color: #555;
+    color: #fff;
+    padding: 8px 30px;
+    margin: 30px 0;
+    border-radius: 30px;
+    transition: background 0.5s;
+}
+
+.btn:hover{
+    background: rgb(43, 42, 42);
+}
+
+/* Comentarios */
+.form-comment {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.form-comment h1 {
+    padding: 0 5px;
+    font-size: 60px;
+    font-weight: 300;
+    color: #160C28;
+}
+.form-comment form {
+    width: 40%;
+}
+.form-comment form textarea {
+    padding: 5px;
+    width: 100%;
+    height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    box-sizing: border-box;
+    background: rgb(225,239 ,230 );
+}
+input[type=submit] {
+    width: 100%;
+    font-size: 18px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+    color: white;
+    background: rgb(22, 12, 40 );
+    margin-top: 10px;
+}
+.form-comment i {
+    width: 40%;
+}
+.form-comment i h3 {
+    padding: 4px 0;
+    font-size: 25px;
+    font-weight: 300;
+    color: #160C28;
+}
+.form-comment i p {
+    padding: 4px 0;
+    font-size: 15px;
+    font-weight: 300;
+    color: #160C28;
+}
+.form-comment i a  {
+    padding: 4px 0;
+    font-size: 30px;
+    font-weight: 300;
+    color: red;
+}

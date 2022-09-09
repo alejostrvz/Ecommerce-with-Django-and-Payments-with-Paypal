@@ -1,0 +1,119 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+/* footer section */
+
+
+
+/* main section */
+
+.product-section-hero {
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.all-product-section-hero {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+/* Prueba */
+.container {
+    
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+.container .card {
+    background-color: #AEB7B3;
+    width: 330px;
+    height: 430px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+    overflow: hidden;
+    margin: 20px;
+    text-align: center;
+    transition: all 0.25s;
+}
+.container, .card:hover {
+    transform: translateY(-15px);
+}
+.container .card img {
+    width: 330px;
+    height: 220px;
+}
+.container .card img:hover {
+    background-color: rgb(50,50,50);
+    background-blend-mode: soft-light;
+    transition: .4s;
+}
+.container .card h4 {
+    font-size: 25px;
+    font-weight: 300;
+}
+.container .card h3 {
+    padding: 0 5px;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.container .card p {
+    padding: 30px 15px;
+    font-size: 15px;
+    font-weight: 300;
+}
+/* Prueba */
+
+.square-hero {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px 0;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #E1EFE6;
+    /* padding: 30px 15px 0 0; */
+}
+.square-hero h4 {
+    font-size: 50px;
+    font-weight: 800;
+    
+}
+
+.square-hero .vertical-menu li {
+    list-style: none;
+    padding: 15px 0;
+    transition: all 0.25s;
+}
+.square-hero .vertical-menu li:hover {
+    transform: scale(1.1);
+    border-bottom: 2px solid black;
+}
+.square-hero .vertical-menu li a {
+    font-size: 30px;
+    color: black;
+    text-decoration: none;
+}
+
+

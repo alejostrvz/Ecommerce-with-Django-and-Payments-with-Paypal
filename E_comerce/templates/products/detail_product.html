@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block custom_css %}
+    {% load static %}
+    <link href="{% static "css/detail.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+    {% if user.isEmailValid == False %}
+            <p style="color: red; font-size: 20px; background-color: rgba(255, 0, 0, 0.2); margin-right: 1295px; border-radius: 7px;">Valida tu correo electronico</p>
+    {% endif %}
+    <div class="small-container single-product">
+        <div class="row">
+            <div class="col-2">
+                <img src="{{ product.image }}"  alt="" width="100%" id="ProductImg">
+                <div class="small-img-row">
+                    <div class="small-img-col">
+                        <img src="{{ product.image2 }}" alt="" width="100%" class="small-img" id="imgsmall">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="{{ product.image3 }}" alt="" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="{{ product.image }}" alt="" width="100%" class="small-img">
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">
+                <p>{{ product.name }}</p>
+                <h1>{{ product.name }}</h1>
+                <h4>${{product.price }}</h4>
+                <a href="/cart/add/{{ product.id }}" class="btn">Add to cart</a>
+                <a href="/wishlist/add/{{ product.id }}" class="btn">Add to Whishlist</a>
+                <h3>Product Details <i class="fa fa-indent"></i></h3>
+                <br>
+                <p>{{ product.description }}</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="form-comment">
+        <h1>Reseñas:</h1>
+        <form action="/products/review/{{ product.id }}" method="POST" class = 'form-textarea'>
+            {% csrf_token %}
+            {% if user.is_authenticated %}
+                <textarea name="rev_content" placeholder="Dejanos una reseña..."></textarea>
+                <input type="submit" value="Comentar">
+            {% else %}
+                <p>debes <a href="/user/login">Iniciar Sesion</a> o <a href="/user/register">Registrarte</a> para poder dejar una reseña</p>
+
+            {% endif %}   
+        </form>
+        <i class="coments">
+            {% for review in reviews %}
+                    <h3>{{ review.author.username }}:</h3>
+                    <p>{{ review.content }}</p>
+                    {% if user == review.author %}
+                        <a href="/products/delete-review/{{ review.id }}"><i class="fa fa-trash"></i></a>
+                    {% endif %}
+            {% endfor %}
+        </i>
+            
+    </div>
+    <script>
+        var ProductImg = document.getElementById("ProductImg");
+        var SmallImg = document.getElementsByClassName("small-img")
+
+        SmallImg[0].onclick = function()
+        {
+            ProductImg.src = SmallImg[0].src;
+        }
+        SmallImg[1].onclick = function()
+        {
+            ProductImg.src = SmallImg[1].src;
+        }
+        SmallImg[2].onclick = function()
+        {
+            ProductImg.src = SmallImg[2].src;
+        }
+        
+    </script>
+{% endblock  %}

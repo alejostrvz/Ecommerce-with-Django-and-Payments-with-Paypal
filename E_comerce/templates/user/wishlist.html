@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block custom_css %}
+    {% load static %}
+    <link href="{% static "css/cart.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+    Lista de deseos
+{% endblock %}
+
+
+{% block main %}
+    <div class="wish-container">
+        <h1>Mi lista de deseos:</h1>
+        <div class="wishlist">
+            {% for wishlistItem in products %}
+            <div class="wishlist-item">
+                <a href="/products/{{  wishlistItem.product.id }}"><img class="cart-item-image" src="{{ wishlistItem.product.image }}"></a>
+                <h3>{{ wishlistItem.product.name }}</h3>
+                <a class="delete" href="/wishlist/delete/{{ wishlistItem.id }}"><i class="fa fa-trash"></i></a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

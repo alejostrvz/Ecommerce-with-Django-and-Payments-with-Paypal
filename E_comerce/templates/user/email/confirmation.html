@@ -1,0 +1,10 @@
+
+{% autoescape off %}
+Bienvenido a ShopCar GT
+
+Hola {{name}}!
+
+Por favor confirme su correo electronico haciendo clic en el siguien enlace
+
+Enlace de confirmacion: http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+{% endautoescape %}

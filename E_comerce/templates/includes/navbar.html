@@ -1,0 +1,51 @@
+{% block custom_css %}
+    {% load static %}
+    <link href="{% static "css/includes/navbar.css" %}" rel="stylesheet">
+{% endblock %}
+<!-- <nav class="navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand link-light" href="{% url 'home' %}" id="title">GT Shop</a>
+        <ul class="links">
+            {% if user.is_authenticated %}
+                <li><a class="link" href="/cart">Carrito ({{ user.cart.products.count }})</a></li>
+                <!-- <li><a class="link" href="/wishlist">Wishlist ({{ user.wishlist.products.count }})</a></li> -->
+                <!-- <li><a class="link" href="{% url 'info_user' user.username user.id %}">{{ user.names }}</a></li>
+            {% else %}
+                <li><a class="link" href="{% url 'login_user' %}">Iniciar Sesión</a></li>
+                <li><a class="link" href="{% url 'register_user' %}">Registrarse</a></li>
+            {% endif %} -->
+        <!-- </ul> -->
+        <!-- <form class="links" action="{% url 'search' %}" method="POST">
+            {% csrf_token %}
+            <input class="form-control me-2" type="search" name="q" aria-label="Search" placeholder="Search Products">
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
+        </form> -->
+    <!-- </div> -->
+    
+<!-- </nav>  -->
+<header class="header">
+    <div class="logo1">
+        <a href="{% url 'home' %}"><h1>GT Shop</h1></a>
+    </div>
+    <div class="search">
+        <form action="{% url 'search' %}" method="POST">{% csrf_token %}
+            <input type="search" name="search" id="search" placeholder="Busca algun producto...">
+            <input type="submit" value="Buscar" id="search-button">
+        </form>
+    </div>
+    <nav>
+        <ul class="nav-links">
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'cart' %}">Carrito ({{ user.cart.products.count }})</a></li>
+            <li><a class="link" href="/wishlist">Wishlist ({{ user.wishlist.products.count }})</a></li>
+            <li><a href="{% url 'info_user' user.username user.id %}">
+                <img src="{% static 'img/iconUser.png' %}" alt="User_icon">
+                {{ user.names }}</a>
+            </li>
+            {% else %}
+            <li><a href="{% url 'login_user' %}">Inciar Sesión</a></li>
+            <li><a href="{% url 'register_user' %}">Registrarse</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>

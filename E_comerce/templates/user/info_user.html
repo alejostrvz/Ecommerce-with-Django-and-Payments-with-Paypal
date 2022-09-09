@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'css/user/info.css' %}" rel="stylesheet">
+    <link href="{% static "css/includes/navbar.css" %}" rel="stylesheet">
+    <title>perfil {{user.names}}</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo1">
+            <a href="{% url 'home' %}"><h1>GT Shop</h1></a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'cart' %}">Carrito ({{ user.cart.products.count }})</a></li>
+                <li><a class="link" href="/wishlist">Wishlist ({{ user.wishlist.products.count }})</a></li>
+                <li><a href="{% url 'logout_user' %}">Cerrar Sesión</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <!-- Usuario -->
+    <div class="container">
+        <div class="user">
+            <div class="image">
+                <img src="{% static 'img/iconUser.png' %}" alt="User_icon">
+            </div>
+            <div class="formUser">
+                <form action="" method="POST"> {% csrf_token %}
+                    <div class="items">
+                        <label for="names">Nombres:</label>
+                        <!-- <input type="text" name="names" id="names" value="{{user.names}}"> -->
+                        {{form.names}}
+                        <label for="last_names">Apellidos:</label>
+                        <!-- <input type="text" name="last_names" id="last_names" value="{{user.last_names}}"> -->
+                        {{form.last_names}}
+                        <label for="age">Edad:</label>
+                        <!-- <input type="text" name="age" id="age" value="{{user.age}}"> -->
+                        {{form.age}}
+                        <label for="country">Pais:</label>
+                        <!-- <input type="text" name="country" id="country" value="{{user.country}}"> -->
+                        {{form.country}}
+                        <label for="direction">Dirección:</label>
+                        <!-- <input type="text" name="direction" id="direction" value="{{user.direction}}"> -->
+                        {{form.direction}}
+                        <input type="submit" value="Actualizar">
+                    </div>
+                </form>
+            </div>
+            <a href="{% url 'update_password' user.id %}" id="actualizar_pass">Actualizar contraseña</a>
+        </div>
+        <!-- <div class="historial">
+        </div> -->
+    </div>
+    <!-- Fin usuario -->
+</body>
+
+</html>
